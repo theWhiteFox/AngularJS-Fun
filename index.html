@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS Fun</title>
+</head>
+
+<body>
+
+    <div class="container" ng-init="names=['Ste', 'Lobsang', 'Norbu', 'Vikas']">
+
+        <h3>Looping with the ng-repeat Directive</h3>
+
+        <ul>
+            <li ng-repeat="personName in names">{{ personName }} </li>
+        </ul>
+
+        Name:
+        <input type="text" ng-model="name"> {{ name }}
+
+        <ul>
+            <li ng-repeat="customer in customers | orderBy:'name'">
+                {{ customer.name | uppercase }}
+            </li>
+        </ul>
+
+        <input type="text" ng-model="nameText">
+
+        <ul>
+            <li ng-repeat="customer in customers | filter:nameText | filter:nameText | orderBy: 'name'"></li>
+        </ul>
+    </div>
+
+    <script src="angular/angular.min.js"></script>
+</body>
+
+</html>
