@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="app">
 
 <head>
     <meta charset="UTF-8">
@@ -10,31 +10,31 @@
 
 <body>
 
-    <div class="container" ng-init="names=['Ste', 'Lobsang', 'Norbu', 'Vikas']">
+    <div class="container" ng-init="customers=[{name:'stephen ó connor',city: 'Dublin'},  { name: 'Ste', city: 'Kerry' }, {name: 'lobsang',city: 'Manali'}, {name:'Norbu',city: 'Manali'}, {name:'vikas',city: 'Delhi'}]">
 
         <h3>Looping with the ng-repeat Directive</h3>
 
-        <ul>
-            <li ng-repeat="personName in names">{{ personName }} </li>
-        </ul>
-
         Name:
-        <input type="text" ng-model="name"> {{ name }}
+        <input type="text" ng-model="name">
 
         <ul>
-            <li ng-repeat="customer in customers | orderBy:'name'">
-                {{ customer.name | uppercase }}
+            <li ng-repeat="customer in customers | filter:name | orderBy:'city'">
+                {{ customer.name | capitalize }} - {{ customer.city | uppercase }}
             </li>
         </ul>
 
-        <input type="text" ng-model="nameText">
+        <!-- <input type="text" ng-model="nameText">
 
         <ul>
-            <li ng-repeat="customer in customers | filter:nameText | filter:nameText | orderBy: 'name'"></li>
-        </ul>
+            <li ng-repeat="customer in customers | filter:nameText 
+            orderBy: 'name'"></li>
+
+            {{ customer.name }} - {{ customer.city }}
+        </ul> -->
     </div>
 
     <script src="angular/angular.min.js"></script>
+    <script src="controller.js"></script>
 </body>
 
 </html>
