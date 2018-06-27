@@ -1,5 +1,3 @@
-const app = angular.module("app", []);
-
 app.controller("app", function($scope) {
   $scope.msg = "hello,world";
 });
@@ -12,3 +10,18 @@ app.filter("capitalize", function() {
       .join(" ");
   };
 });
+
+app.controller("myCtrl", function($scope) {
+  $scope.customers = [
+    { name: "stephen ó connor", city: "dublin" },
+    { name: "ste", city: "kerry" },
+    { name: "lobsang", city: "manali" },
+    { name: "norbu", city: "manali" },
+    { name: "vikas", city: "delhi" }
+  ];
+  $scope.addCustomer = function() {
+    $scope.customer.push({ name: newCustomer.name, city: newCustomer.city });
+  };
+});
+
+
